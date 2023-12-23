@@ -5,7 +5,11 @@ module.exports = {
     port: process.env.DB_PORT ?? 5432,
     user: process.env.DB_USER ?? 'postgres',
     password: process.env.DB_PASSWORD ?? 'postgres',
-    database: process.env.DB_NAME ?? 'nostream'
+    database: process.env.DB_NAME ?? 'nostream',
+    ssl: {
+      rejectUnauthorized: true,
+      ca: process.env.CA_CERT,
+    },
   },
   seeds: {
     directory: './seeds',

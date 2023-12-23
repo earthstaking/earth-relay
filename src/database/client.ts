@@ -31,6 +31,10 @@ const getMasterConfig = (): Knex.Config => ({
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
+    ssl: {
+      rejectUnauthorized: true,
+      ca: process.env.CA_CERT,
+    },
   },
   pool: {
     min: process.env.DB_MIN_POOL_SIZE ? Number(process.env.DB_MIN_POOL_SIZE) : 0,
